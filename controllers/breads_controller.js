@@ -56,12 +56,19 @@ breads.delete('/:breadId', (req, res) => {
 breads.put('/:breadId', (req, res) => {
   req.body.hasGluten === 'on' ? req.body.hasGluten = true : req.body.hasGluten = false;
 
-  Bread.findByIdAndUpdate(req.params.breadId, req.body, (err,doc) => {
+  Bread.findByIdAndUpdate(req.params.breadId, req.body, { new: true }, (err,doc) => {
     if (err || doc === null) return res.render('404')
     res.redirect(`${req.params.breadId}`)
   })
 })
 
+// Seed
+breads.get('/data/seed', (req,res) => {
+  Bread.insertMany(require('../seeders/seed-breads'))
+    .then(createdBreads => {
+      res.redirect('/breads')
+    })
+})
 
 
 module.exports = breads
