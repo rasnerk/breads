@@ -21,8 +21,9 @@ app.get('/', (req, res) => {
 })
   
 // Breads
-app.use('/breads', require('./controllers/breads_controller.js'))
-
+app.use('/breads', require('./routes/breads_route'))
+// Bakers
+app.use('/bakers', require('./routes/bakers_route'))
 // 404 Page
 app.get('*', (req, res) => {
   res.render('404')
