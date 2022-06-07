@@ -1,11 +1,13 @@
 {
   "name": "breadcrud",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.17.3"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

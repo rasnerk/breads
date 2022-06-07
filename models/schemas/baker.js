@@ -13,4 +13,11 @@ const bakerSchema = new mongoose.Schema({
     bio: String
 })
 
+// virtuals
+bakerSchema.virtual('breads', {
+    ref: 'Bread',
+    localField: '_id',
+    foreignField: 'baker'
+})
+
 module.exports = mongoose.model('Baker', bakerSchema)

@@ -14,6 +14,8 @@ const breadSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Baker'
     }
+},{
+    toJSON: { virtuals: true }
 })
 
 // helper methods 
